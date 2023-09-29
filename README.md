@@ -8,7 +8,7 @@ Este código é um exemplo de ajuste de espectro de corpo negro em Python e pode
 
 - ‘corpo_negro.txt’: Um arquivo de exemplo contendo dados de um espectro de corpo negro. Os dados se apresentam em duas colunas, onde a primeira coluna representa o comprimento de onda em micrômetros e a segunda coluna representa a potência emissiva espectral (W / (m^2 * micron)).
 
-- ‘corpo_negro_fit.py’: Código em Python que realiza o ajuste.
+- ‘corpo_negro_fit.ipynb’: Código em Python que realiza o ajuste.
 
 ## Dependências
 
