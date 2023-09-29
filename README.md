@@ -35,6 +35,5 @@ O método de Monte Carlo irá estimar os parâmetros de ajuste (temperatura e fa
 
 Os resultados incluem os seguintes itens:
 
-- Um gráfico com o ajuste em relação aos dados originais
-- Um gráfico identificando as bandas de absorção dentro da amostra 
+- Um gráfico com o ajuste em relação aos dados originais e as bandas de absorção dentro da amostra 
 - Valores de temperatura, incerteza, Chi² e uma lista das bandas de absorção identificadas
