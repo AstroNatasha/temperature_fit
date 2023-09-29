@@ -18,15 +18,13 @@ Este código é um exemplo de ajuste de espectro de corpo negro em Python e pode
 
 ## Como usar o código
 
-Clone este repositório ou baixe o arquivo ‘corpo_negro_fit.py’para o seu ambiente de trabalho. Execute o código Python ‘corpo_negro_fit.py’ em seu ambiente. Você pode fazer isso usando um ambiente Python de sua escolha, como Jupyter Notebook ou um ambiente de desenvolvimento integrado (IDE).
+Clone este repositório ou baixe o arquivo ‘corpo_negro_fit.py’para o seu ambiente de trabalho. Execute o código Python ‘corpo_negro_fit.ipynb’ em seu ambiente. Você pode fazer isso usando um ambiente Python de sua escolha, como Jupyter Notebook ou um ambiente de desenvolvimento integrado (IDE).
 
 Primeiro, certifique-se de que o arquivo de dados ‘corpo_negro.txt’ está presente no mesmo diretório que o arquivo Python. Os dados no arquivo `corpo_negro.txt` precisam estar formatados corretamente, com duas colunas separadas por espaços ou vírgulas. As bibliotecas devem estar instaladas em seu ambiente Python.
 
 ## Metodologia
 
 O código segue a seguinte metodologia para ajustar o espectro de corpo negro:
-
-O ajuste de um espectro de corpo negro é uma tarefa crítica em diversas áreas da física e da ciência dos materiais, incluindo astronomia, física de plasmas e estudos de materiais em altas temperaturas.
 
 A função de ajuste criada é  formulada com base na Lei de Planck, que descreve a intensidade espectral de um corpo negro em termos de temperatura e comprimento de onda. A função planck_lambda é definida para calcular a intensidade espectral teórica usando a Lei de Planck. As bandas de absorção do espectro são identificadas encontrando mínimos locais na potência emissiva, indicando onde a intensidade provavelmente cai devido à absorção de energia. Uma máscara, [mask], booleana é criada para excluir automaticamente essas bandas do ajuste. Posteriormente, usaremos esta mesma máscara com o objetivo inverso, para identificarmos e listarmos estas bandas. A incerteza da temperatura será calculada a partir do desvio padrão das amostras de temperatura.
 
