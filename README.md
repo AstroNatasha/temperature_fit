@@ -1,39 +1,39 @@
-# Determinando a temperatura de um corpo negro pelo método Monte Carlo
+# Determining the Temperature of a Blackbody through the Monte Carlo Method
 
-## Resumo
+## Abstract
 
-Este código é um exemplo de ajuste de espectro de corpo negro em Python e pode ser adaptado para ajustar outros tipos de dados espectrais. O código em Python tem o objetivo de determinar a temperatura T de um corpo negro, ajustando um espectro à função de Planck utilizando o método de Monte Carlo. No fim, espera-se que seja possível determinar os parâmetros que melhor descrevem a um corpo negro, como a temperatura e o fator de escala, e excluindo as bandas de absorção identificadas.
+This Python code serves as an example of fitting a blackbody spectrum and can be adapted for fitting other types of spectral data. The Python code aims to determine the temperature (T) of a blackbody by fitting a spectrum to the Planck function using the Monte Carlo method. In the end, the goal is to identify parameters that best describe a blackbody, such as temperature and scale factor, while excluding identified absorption bands.
 
-## Sobre o repositório
+## About the Repository
 
-- ‘corpo_negro.txt’: Um arquivo de exemplo contendo dados de um espectro de corpo negro. Os dados se apresentam em duas colunas, onde a primeira coluna representa o comprimento de onda em micrômetros e a segunda coluna representa a potência emissiva espectral (W / (m^2 * micron)).
+- ‘corpo_negro.txt’: An example file containing blackbody spectrum data. The data is presented in two columns, where the first column represents the wavelength in micrometers, and the second column represents the spectral emissive power (W / (m^2 * micron)).
 
-- ‘corpo_negro_fit.ipynb’: Código em Python que realiza o ajuste.
+- ‘corpo_negro_fit.ipynb’: Python code performing the fitting.
 
-## Dependências
+## Dependencies
 
 - NumPy
 - Matplotlib
 - SciPy
 
-## Como usar o código
+## How to Use the Code
 
-Clone este repositório ou baixe o arquivo ‘corpo_negro_fit.py’para o seu ambiente de trabalho. Execute o código Python ‘corpo_negro_fit.ipynb’ em seu ambiente. Você pode fazer isso usando um ambiente Python de sua escolha, como Jupyter Notebook ou um ambiente de desenvolvimento integrado (IDE).
+Clone this repository or download the 'corpo_negro_fit.py' file to your working environment. Run the 'corpo_negro_fit.ipynb' Python code in your environment, such as Jupyter Notebook or an integrated development environment (IDE) of your choice.
 
-Primeiro, certifique-se de que o arquivo de dados ‘corpo_negro.txt’ está presente no mesmo diretório que o arquivo Python. Os dados no arquivo `corpo_negro.txt` precisam estar formatados corretamente, com duas colunas separadas por espaços ou vírgulas. As bibliotecas devem estar instaladas em seu ambiente Python.
+First, ensure that the data file 'corpo_negro.txt' is present in the same directory as the Python file. The data in the 'blackbody_spectrum.txt' file must be formatted correctly, with two columns separated by spaces or commas. The required libraries must be installed in your Python environment.
 
-## Metodologia
+## Methodology
 
-O código segue a seguinte metodologia para ajustar o espectro de corpo negro:
+The code follows the following methodology to fit the blackbody spectrum:
 
-A função de ajuste criada é  formulada com base na Lei de Planck, que descreve a intensidade espectral de um corpo negro em termos de temperatura e comprimento de onda. A função planck_lambda é definida para calcular a intensidade espectral teórica usando a Lei de Planck. As bandas de absorção do espectro são identificadas encontrando mínimos locais na potência emissiva, indicando onde a intensidade provavelmente cai devido à absorção de energia. Uma máscara, [mask], booleana é criada para excluir automaticamente essas bandas do ajuste. Posteriormente, usaremos esta mesma máscara com o objetivo inverso, para identificarmos e listarmos estas bandas. A incerteza da temperatura será calculada a partir do desvio padrão das amostras de temperatura.
+The fitting function is formulated based on Planck's Law, describing the spectral intensity of a blackbody in terms of temperature and wavelength. The 'planck_lambda' function is defined to calculate the theoretical spectral intensity using Planck's Law. Absorption bands in the spectrum are identified by finding local minima in emissive power, indicating where the intensity likely drops due to energy absorption. A boolean mask, [mask], is created to automatically exclude these bands from the fit. Subsequently, we use this same mask with the inverse goal, to identify and list these bands. The temperature uncertainty is calculated from the standard deviation of temperature samples.
 
-O método de Monte Carlo irá estimar os parâmetros de ajuste (temperatura e fator de escala). Foram geradas 1000 amostras, a fim de perturbar os parâmetros iniciais com ruído aleatório, assim, a cada iteração, os dados perturbados são ajustados à função de Planck usando a função curve_fit da biblioteca SciPy. O número de amostras pode ser ajustado para equilibrar a precisão e o tempo de execução, entretanto resultados mais precisos irão sacrificar o tempo, demorando mais para que os outputs sejam gerados. O valor do Chi² é calculado para cada conjunto de parâmetros que foram estimados, permitindo uma comparação da potência emissiva observada com a potência emissiva teórica.
+The Monte Carlo method will estimate the fitting parameters (temperature and scale factor). One thousand samples are generated to perturb the initial parameters with random noise, and at each iteration, the perturbed data is fitted to the Planck function using the 'curve_fit' function from the SciPy library. The number of samples can be adjusted to balance precision and runtime, but more accurate results will sacrifice time, taking longer to generate outputs. The Chi² value is calculated for each set of estimated parameters, allowing a comparison of observed emissive power with theoretical emissive power.
 
 
 ## Outputs
 
-Os resultados incluem os seguintes itens:
+The results include the following items:
 
-- Um gráfico com o ajuste em relação aos dados originais e as bandas de absorção dentro da amostra 
-- Valores de temperatura, incerteza, Chi² e uma lista das bandas de absorção identificadas
+- A plot with the fit compared to the original data and absorption bands within the sample
+- Temperature values, uncertainty, Chi², and a list of identified absorption bands
